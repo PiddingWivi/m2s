@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "dabb89ab-b691-4425-9e1d-929f3c6c2174",
+		"name": "Unique Unicorn API",
+		"description": "# 🤖 This collection was made with Generative AI 🤖\n\nThis collection was made with AI and can serve as a blueprint for the API you are building or designing. All your API's endpoints, relevant documentation, and examples live in this collection.\n\n## ✨ Add or remove requests ✨\n\nWhile the AI has created some requests, they may not be exhaustive. Look through the collection and add any additional requests that might be missing or delete requests that are not needed.\n\n## ✨ Add to the AI-generated documentation ✨\n\nNavigate to “View complete collection documentation” at the bottom of this overview and read through the AI-generated documentation. You can add or remove documentation for requests and folders, and even replace this collection overview entirely! [Learn more about Postman documentation here](https://learning.postman.com/docs/publishing-your-api/documenting-your-api), or [in this public collection](https://www.postman.com/postman/workspace/postman-blog/collection/1559645-9273b2e1-2002-40fd-ade1-98fe25ec9e7c), you can fork it into this workspace for easy access!\n\n## ✨ Update your variables ✨\n\nThe base URLs for all requests have been stored as a collection variable. Once you have written the code for your API, navigate to the Variables tab. Update the `baseUrl` variable with your API's URL so you can start sending requests. [Learn more about Postman variables](https://learning.postman.com/docs/sending-requests/variables).\n\n## ✨ Write tests with AI or on your own ✨\n\nWriting tests is important to ensure that your API is performing as expected. You can even use our new AI helper, [Postbot](https://blog.postman.com/introducing-postbot-postmans-new-ai-assistant), to help you get started. [Learn more about writing tests](https://learning.postman.com/docs/writing-scripts/test-scripts).\n\n## ✨ Set up a mock server ✨\n\nWhile you work on coding your new API, you can set up a mock server so that your teammates can begin consuming your API even before it's built! A mock server simulates the behavior of a real API server by accepting requests and returning responses. [Learn more about mock servers](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock).\n\n## ✨ Create another collection with AI ✨\n\nWant to try a different prompt? In the top-left sidebar of Postman, click on the '+' button then click 'Create with AI' to generate a new collection.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "29492842-dabb89ab-b691-4425-9e1d-929f3c6c2174"
+	},
+	"item": [
+		{
+			"name": "unicorns",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get Unicorn by ID",
+							"id": "97da8354-c9d3-4495-ba34-f612153b272c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/unicorns/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Returns a single Unicorn based on its ID.\n\n### Path Parameters:\n- `id` (required, integer): The ID of the Unicorn.\n\n### Responses:\n- `200`: Successful operation. Returns the Unicorn.\n- `404`: Unicorn not found.\n"
+							},
+							"response": [
+								{
+									"id": "3b7ece51-3f2e-4f6c-bb2d-3e7b4eb59413",
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/v1/unicorns/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"v1",
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\",\n  \"age\": 10\n}"
+								},
+								{
+									"id": "dc67f672-ffe4-42a2-8b1f-ad7c3678a7cd",
+									"name": "Unicorn not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update Unicorn by ID",
+							"id": "95500f3f-7ba0-4b3f-b570-92c3a9b6c868",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/unicorns/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Updates a single Unicorn based on its ID.\n\n### Path Parameters:\n- `id` (required, integer): The ID of the Unicorn.\n\n### Request Body:\n- `name` (optional, string): The updated name of the Unicorn.\n- `type` (optional, string): The updated type of the Unicorn.\n\n### Responses:\n- `200`: Successful operation. Returns the updated Unicorn.\n- `400`: Invalid request parameters.\n- `404`: Unicorn not found.\n"
+							},
+							"response": [
+								{
+									"id": "6d133bcc-0c70-4631-9b11-f572e3f8df76",
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\",\n  \"age\": 10\n}"
+								},
+								{
+									"id": "25f6924a-9399-4dfa-9bf7-d3f7d996c3a5",
+									"name": "Invalid request parameters",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "993b05f3-21fc-482d-87cf-3c6682f180cb",
+									"name": "Unicorn not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete Unicorn by ID",
+							"id": "0da9b805-1829-42f2-9c84-27a0adcdf135",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/unicorns/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Deletes a single Unicorn based on its ID.\n\n### Path Parameters:\n- `id` (required, integer): The ID of the Unicorn.\n\n### Responses:\n- `204`: Successful operation. No content returned.\n- `404`: Unicorn not found.\n"
+							},
+							"response": [
+								{
+									"id": "7698f4bb-1c1f-4d2f-a7c2-001602370a17",
+									"name": "Successful operation. No content returned.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "9a3ef71c-61fc-4dd8-83fe-299927c4b0ed",
+									"name": "Unicorn not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/unicorns/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"unicorns",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "402377fe-6b8f-43a1-a968-d601c63dd5e3"
+				},
+				{
+					"name": "Get all Unicorns",
+					"id": "a0ce95ff-10f2-49ef-a397-cee0dd79336d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/unicorns?limit=10&offset=0&type=magical",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"unicorns"
+							],
+							"query": [
+								{
+									"description": "The maximum number of results to return.",
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"description": "The number of results to skip.",
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"description": "Filter the results by type.",
+									"key": "type",
+									"value": "magical"
+								}
+							]
+						},
+						"description": "Returns a list of all Unicorns.\n\n### Parameters:\n- `limit` (optional, integer): The maximum number of results to return. Default is 10.\n- `offset` (optional, integer): The number of results to skip. Default is 0.\n- `type` (optional, string): Filter the results by type. Example: \"magical\".\n\n### Responses:\n- `200`: Successful operation. Returns a list of Unicorns.\n- `400`: Invalid request parameters.\n"
+					},
+					"response": [
+						{
+							"id": "6861b1e7-da0d-40fa-9fcb-9e1a9cb2f52e",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/unicorns?limit=10&offset=0&type=magical",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns"
+									],
+									"query": [
+										{
+											"description": "The maximum number of results to return.",
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"description": "The number of results to skip.",
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"description": "Filter the results by type.",
+											"key": "type",
+											"value": "magical"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Sparkle\",\n    \"type\": \"magical\",\n    \"age\": 10\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Sparkle\",\n    \"type\": \"magical\",\n    \"age\": 10\n  }\n]"
+						},
+						{
+							"id": "a2882981-3f33-4ae6-8398-3e4f4dd3f02f",
+							"name": "Invalid request parameters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/unicorns?limit=10&offset=0&type=magical",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns"
+									],
+									"query": [
+										{
+											"description": "The maximum number of results to return.",
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"description": "The number of results to skip.",
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"description": "Filter the results by type.",
+											"key": "type",
+											"value": "magical"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create a new Unicorn",
+					"id": "f9ff3475-d2f3-4455-9d96-f83dadc0c358",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/unicorns",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"unicorns"
+							]
+						},
+						"description": "Creates a new Unicorn.\n\n### Request Body:\n- `name` (required, string): The name of the Unicorn.\n- `type` (required, string): The type of the Unicorn.\n\n### Responses:\n- `201`: Successful operation. Returns the created Unicorn.\n- `400`: Invalid request parameters.\n"
+					},
+					"response": [
+						{
+							"id": "548e2458-a406-4c6d-912a-4ba4bc0ab273",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/unicorns",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\",\n  \"age\": 10\n}"
+						},
+						{
+							"id": "4230a7f8-e551-4b86-9c13-67f23fa4e6fd",
+							"name": "Invalid request parameters",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Sparkle\",\n  \"type\": \"magical\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/unicorns",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"unicorns"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "e6073595-5513-45b9-832b-2d21179997d3",
+			"description": "Goran i Zoran"
+		}
+	],
+	"variable": [
+		{
+			"id": "b1142144-11bd-4598-a154-8b67f08f1f95",
+			"key": "baseUrl",
+			"value": "http://localhost:3000/v1"
+		}
+	]
+}
